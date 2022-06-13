@@ -4,6 +4,7 @@ const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_
 
 const Discord = require('discord.js');
 
+const config = require('./config.json');
 
 
 const prefix = '!';
@@ -40,4 +41,4 @@ client.on('messageCreate', async  messageCreate=>{
   }
 });
 
-client.login('OTcxODYwMzM4NjA3ODA4NTQz.GRmyMu.dT-MRIuSO59TcmROFwfJdhp7Kd0YES3H5GawrA');
+client.login(config.token);
