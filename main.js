@@ -1,6 +1,6 @@
 const {Client, Intents} = require('discord.js');
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]});
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS]});
 
 const Discord = require('discord.js');
 
@@ -23,6 +23,11 @@ for(const file of commandFiles){
 // Bot is ready
 client.once('ready', () => {
   console.log('OverwatchBot is online!');
+});
+
+client.on('guildMemberAdd', guildMember =>{
+    const greetings = require('./greetings')
+    greetings.execute(guildMember);
 });
 
 // Reads input of users and decifers their commands
